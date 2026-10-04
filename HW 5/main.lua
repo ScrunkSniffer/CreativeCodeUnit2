@@ -4,7 +4,7 @@ function setup()
   size(500, 500)
 
   -- Set the program title
-  windowTitle("PoopScape")
+  windowTitle("Scape")
 
   describe('Draws')
 end
