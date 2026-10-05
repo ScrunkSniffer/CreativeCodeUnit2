@@ -1,0 +1,42 @@
+require("L5")
+
+function setup()
+  size(500, 500)
+
+  -- Set the program title
+  windowTitle("Scape")
+
+  describe('Draws')
+end
+
+function draw()
+    background(200, 200, 0)
+    local q = color(150,100,50)
+    local s = color(170,100,50)
+    local b = color(214, 212, 171)
+    local p = color(150,150,0)
+    local f = color(150,150,150)
+    local g = color(50, 200, 25)
+    fill(s)
+    rect(width / 3, height / 1.25, width / 2, height / 1)
+    fill(p)
+    rect(width / 1.5, height / 1.25, width / 2, height / 1)
+    fill(q)
+    rect(width / 3, height / 2.5, width / 5, height / 2.5)
+    rect(width / 4, height / 3, width / 4, height / 2)
+    rect(width / 5, height / 3.5, width / 4, height / 1.5)
+    rect(width / 500, height / 4, width / 4, height / 1)
+    rect(width / 10, height / 5, width / 4, height / 1)
+    fill(f)
+    rect(width / 1.1, height / 2, width / 10, height / 4)
+    fill(100)
+    rect(width / 1.6, height / 1.28, width / 15, height / 1)
+    fill(b)
+    rect(width / 1.3, height / 1.34, width / 1.2, height / 19)
+    fill(g)
+    ellipse(mouseX, mouseY, width / 5, height / 10)
+    ellipse(mouseX, mouseY, width / 8, height / 8)
+    ellipse(mouseX, mouseY, width / 5, height / 12)
+    ellipse(mouseX, mouseY, width / 7, height / 10)
+    ellipse(mouseX, mouseY, width / 6, height / 12)
+end
