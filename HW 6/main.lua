@@ -1,42 +1,60 @@
 require("L5")
 
+ballX = 150
+ballY = 150
+xSpeed = 3
+ySpeed = 2
+
+rectSize = 50
+growing = true
+
+redValue = 0
+redSpeed = 2
+
 function setup()
-  size(500, 500)
-
-  -- Set the program title
-  windowTitle("Scape")
-
-  describe('Draws')
+  size(300, 300)
 end
 
 function draw()
-    background(200, 200, 0)
-    local q = color(150,100,50)
-    local s = color(170,100,50)
-    local b = color(214, 212, 171)
-    local p = color(150,150,0)
-    local f = color(150,150,150)
-    local g = color(50, 200, 25)
-    fill(s)
-    rect(width / 3, height / 1.25, width / 2, height / 1)
-    fill(p)
-    rect(width / 1.5, height / 1.25, width / 2, height / 1)
-    fill(q)
-    rect(width / 3, height / 2.5, width / 5, height / 2.5)
-    rect(width / 4, height / 3, width / 4, height / 2)
-    rect(width / 5, height / 3.5, width / 4, height / 1.5)
-    rect(width / 500, height / 4, width / 4, height / 1)
-    rect(width / 10, height / 5, width / 4, height / 1)
-    fill(f)
-    rect(width / 1.1, height / 2, width / 10, height / 4)
-    fill(100)
-    rect(width / 1.6, height / 1.28, width / 15, height / 1)
-    fill(b)
-    rect(width / 1.3, height / 1.34, width / 1.2, height / 19)
-    fill(g)
-    ellipse(mouseX, mouseY, width / 5, height / 10)
-    ellipse(mouseX, mouseY, width / 8, height / 8)
-    ellipse(mouseX, mouseY, width / 5, height / 12)
-    ellipse(mouseX, mouseY, width / 7, height / 10)
-    ellipse(mouseX, mouseY, width / 6, height / 12)
+  background(35,90,35)
+
+ -- Draw ball
+  circle(ballX, ballY, 30)
+
+  -- Move ball
+  ballX = ballX + xSpeed
+  ballY = ballY + ySpeed
+
+  -- Bounce off left and right edges
+  if ballX < 0 or ballX > width then
+    xSpeed = xSpeed * -1
+  end
+
+  -- Bounce off top and bottom edges
+  if ballY < 0 or ballY > height then
+    ySpeed = ySpeed * -1
+  end
+
+  rect(150, 150, 150, rectSize)
+
+  if growing then
+    rectSize = rectSize + 1
+  else
+    rectSize = rectSize - 1
+  end
+
+  if rectSize > 200 then
+    growing = false
+  elseif rectSize < 50 then
+    growing = true
+  end
+
+  fill(redValue, 100, 100)
+  circle(150, 150, 100)
+
+  redValue = redValue + redSpeed
+
+  if redValue < 0 or redValue > 255 then
+    redSpeed = redSpeed * -1
+  end
 end
