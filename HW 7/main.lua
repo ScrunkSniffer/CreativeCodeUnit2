@@ -1,60 +1,25 @@
 require("L5")
-
-ballX = 150
-ballY = 150
-xSpeed = 3
-ySpeed = 2
-
-rectSize = 50
-growing = true
-
-redValue = 0
-redSpeed = 2
-
 function setup()
-  size(300, 300)
+  size(300, 500)
+  background(220)
 end
 
 function draw()
-  background(35,90,35)
-
- -- Draw ball
-  circle(ballX, ballY, 30)
-
-  -- Move ball
-  ballX = ballX + xSpeed
-  ballY = ballY + ySpeed
-
-  -- Bounce off left and right edges
-  if ballX < 0 or ballX > width then
-    xSpeed = xSpeed * -1
+  if mouseIsPressed then
+    for x = 0, 8 do
+    for y = 0, 15 do
+      rectX = 15 + (x * 30)
+      rectY = 15 + (y * 30)
+      fill(0, 200, random(255))
+      rect(rectX, rectY, 20, 20)
+    end
+     for i = 1, 50 do
+    x = random(width)
+    y = random(height)
+    size = random(5, 35)
+    fill(200, random(150), random(255))
+    circle(x, y, size)
   end
-
-  -- Bounce off top and bottom edges
-  if ballY < 0 or ballY > height then
-    ySpeed = ySpeed * -1
-  end
-
-  rect(150, 150, 150, rectSize)
-
-  if growing then
-    rectSize = rectSize + 1
-  else
-    rectSize = rectSize - 1
-  end
-
-  if rectSize > 200 then
-    growing = false
-  elseif rectSize < 50 then
-    growing = true
-  end
-
-  fill(redValue, 100, 100)
-  circle(150, 150, 100)
-
-  redValue = redValue + redSpeed
-
-  if redValue < 0 or redValue > 255 then
-    redSpeed = redSpeed * -1
-  end
+end
+end
 end
