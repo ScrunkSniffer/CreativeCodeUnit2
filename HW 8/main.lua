@@ -1,25 +1,29 @@
+cPhysique = {"fat,","skinny,","tubby,","jacked,","jigglily,"}
+cStature = {" short,"," tall,"," lanky,"," stout,"," pimply,"}
+cQuirk = {" hairy"," vascular"," bony"," dense"," deflated"}
+myText = "I want a man with a "
 require("L5")
+
 function setup()
-  size(300, 500)
-  background(220)
+    size(600, 400)
+    angleMode(DEGREES)
+    frameRate(60)
+    windowTitle("Array +  Function")
+
+    describe('Black background with white text.')
+
+    background(0)
+    textAlign(CENTER)
+    textSize(24)
+    sentenceBuilder(30)
 end
 
-function draw()
-  if mouseIsPressed then
-    for x = 0, 8 do
-    for y = 0, 15 do
-      rectX = 15 + (x * 30)
-      rectY = 15 + (y * 30)
-      fill(0, 200, random(255))
-      rect(rectX, rectY, 20, 20)
-    end
-     for i = 1, 50 do
-    x = random(width)
-    y = random(height)
-    size = random(5, 35)
-    fill(200, random(150), random(255))
-    circle(x, y, size)
-  end
+function mouseClicked()
+    background(0)
+    sentenceBuilder()
 end
-end
+
+
+function sentenceBuilder()
+  text(myText..random(cPhysique)..random(cStature)..random(cQuirk).." butt.", width/2, height/2)
 end
